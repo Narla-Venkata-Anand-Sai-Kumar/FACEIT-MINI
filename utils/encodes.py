@@ -34,7 +34,7 @@ def dry_run():
         cur_img = cv2.imread(f'{path}/{cl}')
         images.append(cur_img)
         classNames.append(os.path.splitext(cl)[0])
-    encodings_file = 'face_encodings.json'
+    encodings_file = 'encodings/face_encodings.json'
     if not os.path.exists(encodings_file):
         known_face_encodings = find_encodings(images)
         save_encodings(known_face_encodings, encodings_file)
