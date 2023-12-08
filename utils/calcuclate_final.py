@@ -10,5 +10,5 @@ def calculate(l1,l2,timestamp_dict):
     for i in l2:
         if l2[i]>3:
             dt_final = datetime.fromtimestamp(max(timestamp_dict[i]))
-            final_list[i] = dt_final.strftime("%H:%M:%S")
+            final_list[i] = [dt_final.strftime("%H:%M:%S")]
     return final_list
