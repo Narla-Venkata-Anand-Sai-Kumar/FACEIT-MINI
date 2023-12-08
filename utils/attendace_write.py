@@ -46,7 +46,3 @@ def write_to_csv(attendance_data, student_data, output_file):
                 'TimeDifference': difference if difference is not None else 'Not Available'
             })
 
-# Example usage:
-
-output_file = 'attendance/output.csv'
-write_to_csv(attendance_data, student_data, output_file)
