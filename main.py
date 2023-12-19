@@ -7,7 +7,7 @@ from utils.sheduler import *
 known_face_encodings, known_face_names = dry_run()
 
 # a=Find_attend(known_face_encodings,known_face_names)
-
+# 
 
 attendance_data = execute_functions(known_face_encodings,known_face_names)
 

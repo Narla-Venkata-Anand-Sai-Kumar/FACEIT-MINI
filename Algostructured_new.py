@@ -14,7 +14,7 @@ import time
 video_capture = cv2.VideoCapture(0)
 
 
-def Find_attend(known_face_encodings,known_face_names):
+def Find_attend(known_face_encodings,known_face_names,current_minute):
     face_locations = []
     face_encodings = []
     face_names = []
@@ -24,8 +24,11 @@ def Find_attend(known_face_encodings,known_face_names):
     l1=[]
     timestamp_dict = {}
     _,frame=video_capture.read()
-
-    while _:
+    lt = [200,350,350,500]
+    if current_minute == 2:
+        a,b = lt[2],lt[3]
+    
+    while _ & int(datetime.now().strftime("%H%M")) < a & int(datetime.now().strftime("%H%M")) > b:
         ret, frame = video_capture.read()
         c+=1
         if process_this_frame:
