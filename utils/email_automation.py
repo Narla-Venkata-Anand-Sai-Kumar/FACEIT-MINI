@@ -29,10 +29,10 @@ def mailer(EMAIL_TO,name):
         smtp.login(SMTP_USERNAME, SMTP_PASSWORD)
         smtp.sendmail(EMAIL_FROM, EMAIL_TO, msg.as_string())
 
+def sendmail():
+    df = pd.read_csv('attendance/output.csv')
+    emails,names,in_time,out_time,total,regno = df['Email'].tolist(),df['Name'].tolist(),df['InTime'].tolist(),df['OutTime'].tolist(),df['TimeDifference'].tolist(),df['Roll No'].tolist()
 
-df = pd.read_csv('attendance/output.csv')
-emails,names,in_time,out_time,total,regno = df['Email'].tolist(),df['Name'].tolist(),df['InTime'].tolist(),df['OutTime'].tolist(),df['TimeDifference'].tolist(),df['Roll No'].tolist()
-
-for i in range(len(emails)):
-    mailer(emails[i],names[i])
-    print(f"Mail sent to {names[i]}")
+    for i in range(len(emails)):
+        mailer(emails[i],names[i])
+        print(f"Mail sent to {names[i]}")

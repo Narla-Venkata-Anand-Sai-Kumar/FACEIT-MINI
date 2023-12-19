@@ -32,7 +32,7 @@ def write_to_csv(attendance_data, student_data, output_file):
             name = student_dict[roll_no]['name']
             email = student_dict[roll_no]['email']
             intime = times[0]
-            outtime = times[1]
+            outtime = times[0]
             difference = None
             if intime and outtime:
                 difference = time_diff_in_minutes(intime, outtime)

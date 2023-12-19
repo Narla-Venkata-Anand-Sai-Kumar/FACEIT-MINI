@@ -6,6 +6,8 @@ from datetime import datetime
 import csv
 import pandas as pd
 import random
+from utils.attendace_write import read_student_data, write_to_csv
+from utils.email_automation import sendmail
 from utils.draw_border import draw_border
 from utils.calcuclate_final import calculate
 import time
@@ -75,4 +77,10 @@ def Find_attend(known_face_encodings,known_face_names,current_minute):
     
     attendee = calculate(l1,l2,timestamp_dict)
     print(attendee)
+    student_data_file = 'attendance/input.csv'
+    output_file = 'attendance/output.csv'
+    student_data = read_student_data(student_data_file)
+
+    write_to_csv(attendee, student_data, output_file)
+    sendmail()
     return attendee
