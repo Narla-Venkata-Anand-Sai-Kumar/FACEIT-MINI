@@ -7,10 +7,11 @@ def execute_functions(known_face_encodings, known_face_names):
     current_minute = int(datetime.now().strftime("%H%M"))
     final_list = {}
     i=0
-    while i==2:
-        if current_minute > 200 & current_minute <= 350:
+    while i<2:
+        print(current_minute)
+        if current_minute > 1400 & current_minute <= 1550:
             first_half = Find_attend(known_face_encodings, known_face_names,1)
-        elif current_minute > 350 & current_minute <= 500:
+        elif current_minute > 1550 & current_minute <= 1700:
             second_half = Find_attend(known_face_encodings, known_face_names,2)
         else:
             print("pass")

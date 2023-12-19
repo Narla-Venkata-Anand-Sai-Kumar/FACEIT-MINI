@@ -11,7 +11,7 @@ from utils.calcuclate_final import calculate
 import time
 
 # video_capture = cv2.VideoCapture('http://192.168.176.196:8080/video')
-video_capture = cv2.VideoCapture(0)
+video_capture = cv2.VideoCapture(2)
 
 
 def Find_attend(known_face_encodings,known_face_names,current_minute):
@@ -24,11 +24,12 @@ def Find_attend(known_face_encodings,known_face_names,current_minute):
     l1=[]
     timestamp_dict = {}
     _,frame=video_capture.read()
-    lt = [200,350,350,500]
+    lt = [1400,1550,1550,1700]
+    a,b = lt[0],lt[1]
     if current_minute == 2:
         a,b = lt[2],lt[3]
     
-    while _ & int(datetime.now().strftime("%H%M")) < a & int(datetime.now().strftime("%H%M")) > b:
+    while _:
         ret, frame = video_capture.read()
         c+=1
         if process_this_frame:
@@ -67,7 +68,6 @@ def Find_attend(known_face_encodings,known_face_names,current_minute):
             cv2.putText(frame, name, (left + 6, bottom - 6), font, 1.0, (255, 255, 255), 1)
 
         cv2.imshow('Video', frame)
-
         if cv2.waitKey(1) & 0xFF == ord('q'):
             break
     video_capture.release()
